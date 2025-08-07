@@ -60,120 +60,78 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center">
             <div>
               <h3 className="text-2xl font-semibold font-heading mb-6">Let's Connect</h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
                 I'm actively seeking entry-level opportunities in cybersecurity. Whether you're looking 
                 for a Security Analyst, SOC Analyst, or Cybersecurity Specialist, I'd love to hear from you.
               </p>
             </div>
 
-            <div className="space-y-6">
+            {/* Contact Cards */}
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-center space-x-4">
-                  <div className="bg-gradient-hero p-3 rounded-xl">
-                    <info.icon className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium">{info.label}</p>
+                <Card key={index} className="border-0 shadow-smooth hover:shadow-lg transition-all duration-300 group">
+                  <CardContent className="p-8 text-center">
+                    <div className="bg-gradient-hero p-4 rounded-2xl w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <info.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="font-semibold text-lg mb-2">{info.label}</h4>
                     {info.link ? (
                       <a 
                         href={info.link}
-                        className="text-primary hover:text-primary-dark transition-colors"
+                        className="text-primary hover:text-primary-dark transition-colors font-medium"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-muted-foreground">{info.value}</p>
+                      <p className="text-muted-foreground font-medium">{info.value}</p>
                     )}
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
 
-            {/* Quick Actions */}
-            <Card className="border-0 shadow-smooth bg-gradient-card">
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-4">Quick Actions</h4>
-                <div className="space-y-3">
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                    onClick={() => window.open('mailto:rahulprasad0205@gmail.com')}
-                  >
-                    <Mail className="h-4 w-4 mr-2" />
-                    Send Email
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start"
-                    onClick={() => window.open('https://linkedin.com/in/rahulprasad0205', '_blank')}
-                  >
-                    <Linkedin className="h-4 w-4 mr-2" />
-                    Connect on LinkedIn
-                  </Button>
-                </div>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                className="bg-gradient-hero hover:opacity-90 shadow-hero text-lg px-8 py-4"
+                onClick={() => window.open('mailto:rahulprasad0205@gmail.com')}
+              >
+                <Mail className="h-5 w-5 mr-2" />
+                Send Email
+              </Button>
+              <Button 
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-4"
+                onClick={() => window.open('https://linkedin.com/in/rahulprasad0205', '_blank')}
+              >
+                <Linkedin className="h-5 w-5 mr-2" />
+                Connect on LinkedIn
+              </Button>
+            </div>
+
+            {/* Additional CTA */}
+            <Card className="border-0 shadow-smooth bg-gradient-card mt-12">
+              <CardContent className="p-8 text-center">
+                <h3 className="text-xl font-semibold mb-4">Ready to Secure Your Organization?</h3>
+                <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
+                  Let's discuss how my cybersecurity expertise and passion for digital protection 
+                  can contribute to your team's success and help safeguard your digital assets.
+                </p>
+                <Button className="bg-gradient-hero hover:opacity-90">
+                  Download My Resume
+                </Button>
               </CardContent>
             </Card>
           </div>
-
-          {/* Contact Form */}
-          <Card className="border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-xl font-semibold">Send a Message</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your full name"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your.email@company.com"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about the opportunity or ask any questions..."
-                    rows={5}
-                    required
-                  />
-                </div>
-
-                <Button type="submit" className="w-full bg-gradient-hero hover:opacity-90">
-                  <Send className="h-4 w-4 mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>
