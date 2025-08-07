@@ -127,7 +127,7 @@ const ContactSection = () => {
                   can contribute to your team's success and help safeguard your digital assets.
                 </p>
                 <Button className="bg-gradient-hero hover:opacity-90">
-                  Download My Resume
+                  View My Resume
                 </Button>
               </CardContent>
             </Card>
