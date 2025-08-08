@@ -135,10 +135,16 @@ const ProjectsSection = () => {
                 I'm continuously working on new cybersecurity projects and research. 
                 Stay tuned for more innovative solutions in threat detection and security analysis.
               </p>
+              <a href="https://github.com/rahul0252" 
+              target="_blank" 
+              rel="noopener noreferrer"
+                >
               <Button className="bg-gradient-hero hover:opacity-90">
                 <Github className="h-4 w-4 mr-2" />
                 View All Projects on GitHub
               </Button>
+            </a>
+
             </CardContent>
           </Card>
         </div>

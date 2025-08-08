@@ -30,13 +30,13 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'rahulprasad0205@gmail.com',
+      value: 'Send an Email',
       link: 'mailto:rahulprasad0205@gmail.com'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: 'linkedin.com/in/rahulprasad0205',
+      value: 'Connect On LinkedIn',
       link: 'https://linkedin.com/in/rahulprasad0205'
     },
     {
@@ -98,7 +98,7 @@ const ContactSection = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
                 className="bg-gradient-hero hover:opacity-90 shadow-hero text-lg px-8 py-4"
@@ -116,7 +116,7 @@ const ContactSection = () => {
                 <Linkedin className="h-5 w-5 mr-2" />
                 Connect on LinkedIn
               </Button>
-            </div>
+            </div> */}
 
             {/* Additional CTA */}
             <Card className="border-0 shadow-smooth bg-gradient-card mt-12">
@@ -126,9 +126,16 @@ const ContactSection = () => {
                   Let's discuss how my cybersecurity expertise and passion for digital protection 
                   can contribute to your team's success and help safeguard your digital assets.
                 </p>
-                <Button className="bg-gradient-hero hover:opacity-90">
-                  View My Resume
+                <Button asChild className="bg-gradient-hero hover:opacity-90">
+                <a
+                    href="/Rahul_Prasad_Resume_2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View My Resume
+                  </a>
                 </Button>
+
               </CardContent>
             </Card>
           </div>
