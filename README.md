@@ -49,8 +49,7 @@ This repository contains the source code for my modern, responsive, and interact
 
 ## 🌐 Portfolio Website
 You can view my live portfolio here:  
-🔗 **[Portfolio Website Link]((https://portfolio-iota-virid-39.vercel.app/))
-
+🔗 **[Portfolio Website Link](https://portfolio-iota-virid-39.vercel.app/)**
 ---
 
 ## 📫 Contact
